@@ -15,18 +15,25 @@ body{
     font-family:'Poppins',sans-serif;
     margin:0;
     color:#fff;
-
-    /* BACKGROUND CADANGAN (kalau img belum load) */
-    background:
-    linear-gradient(135deg,#000000,#0a0a0a,#1a1a1a);
+    background:#000;
 }
 
-/* overlay biar gelap */
+/* BACKGROUND PASTI MUNCUL */
+#bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+}
+
 .overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.7);
-    z-index:-1;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  z-index:-1;
 }
 
 header{
@@ -55,26 +62,6 @@ marquee{
     padding:20px;
     margin-bottom:20px;
     box-shadow:0 0 20px rgba(255,215,0,0.2);
-}
-
-.promo{
-    position:relative;
-    overflow:hidden;
-}
-.promo::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-    url('bg.jpg');
-    background-size:cover;
-    background-position:center;
-    z-index:0;
-}
-.promo *{
-    position:relative;
-    z-index:2;
 }
 
 h2{
@@ -136,17 +123,7 @@ footer{
 
 <body>
 
-<!-- 🔥 BACKGROUND UTAMA (PASTI MUNCUL) -->
-<img src="bg.jpg" style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
-">
-
+<img id="bg" src="bg.jpg">
 <div class="overlay"></div>
 
 <header>
@@ -154,77 +131,76 @@ TOKO EMAS ANTAM OFFICIAL
 </header>
 
 <marquee>
-Harga emas mengikuti pasar dunia | Pengiriman COD seluruh Indonesia | 100% ORIGINAL ANTAM
+Harga emas mengikuti pasar dunia | COD seluruh Indonesia | 100% ORIGINAL ANTAM
 </marquee>
 
 <div class="container">
 
-<div class="card promo">
+<div class="card">
 <h2>🔥 PROMO HARI INI</h2>
-<p>Beli emas hari ini dapat DISKON + BONUS ongkir khusus wilayah tertentu!</p>
+<p>Beli emas hari ini dapat DISKON + BONUS ongkir!</p>
 </div>
 
 <div class="card">
 <h2>💎 Produk Emas ANTAM</h2>
 <div class="product"><span>1 gram</span><span>Rp 2.800.000</span></div>
-<div class="product"><span>2 gram</span><span>Rp 5.660.000</span></div>
-<div class="product"><span>3 gram</span><span>Rp 8.400.000</span></div>
 <div class="product"><span>5 gram</span><span>Rp 14.060.000</span></div>
 <div class="product"><span>10 gram</span><span>Rp 28.900.000</span></div>
-<div class="product"><span>25 gram</span><span>Rp 70.080.000</span></div>
 </div>
 
 <div class="card">
-<h2>📝 Form Pembelian Resmi</h2>
+<h2>🚚 Pengiriman</h2>
+<p>✔ COD (Bayar di Tempat)</p>
+<p>✔ JNE / J&T / SiCepat</p>
+<p>✔ Packing aman & diasuransikan</p>
+</div>
+
+<div class="card">
+<h2>📍 Alamat Resmi</h2>
+<p>Jl. Sudirman No. 123<br>
+Jakarta Pusat<br>
+Indonesia</p>
+</div>
+
+<div class="card">
+<h2>📝 Form Pembelian</h2>
 <input type="text" placeholder="Nama Lengkap">
 <input type="text" placeholder="Alamat Lengkap">
 <select>
 <option>Pilih Produk</option>
 <option>1 gram</option>
-<option>2 gram</option>
-<option>3 gram</option>
 <option>5 gram</option>
 <option>10 gram</option>
-<option>25 gram</option>
 </select>
 <button class="btn" onclick="order()">Pesan Sekarang</button>
 </div>
 
 <div class="card">
-<h2>📊 Grafik Harga Emas</h2>
+<h2>📊 Grafik Harga</h2>
 <canvas id="chart"></canvas>
 </div>
 
 <div class="card">
-<h2>📜 Legalitas & Izin</h2>
-<p>Terdaftar resmi dan menjual produk ANTAM bersertifikat.</p>
-</div>
-
-<div class="card">
-<h2>🏅 Sertifikat Digital</h2>
-<p>Setiap pembelian disertai sertifikat keaslian ANTAM.</p>
-</div>
-
-<div class="card">
-<h2>⭐ Testimoni Pelanggan</h2>
+<h2>⭐ Review Pelanggan</h2>
 
 <div class="review-box">
-<strong>Andi Saputra</strong><br>
+<strong>Andi</strong><br>
 ⭐⭐⭐⭐⭐<br>
-<span>Transaksi sangat aman, emas asli dan bersertifikat.</span>
+Emas asli, pengiriman cepat!
 </div>
 
 <div class="review-box">
-<strong>Siti Rahma</strong><br>
+<strong>Siti</strong><br>
 ⭐⭐⭐⭐⭐<br>
-<span>Pelayanan ramah dan profesional.</span>
+Pelayanan bagus & terpercaya
 </div>
 
+<div class="review-box">
+<strong>Budi</strong><br>
+⭐⭐⭐⭐⭐<br>
+Sudah beli 2x aman
 </div>
 
-<div class="card">
-<h2>⚠️ Himbauan</h2>
-<p>Hati-hati penipuan, hanya transaksi melalui nomor resmi kami.</p>
 </div>
 
 </div>
@@ -239,18 +215,11 @@ Harga emas mengikuti pasar dunia | Pengiriman COD seluruh Indonesia | 100% ORIGI
 function order(){
     let nomor = "628127835535";
 
-    let nama = document.querySelector('input[placeholder="Nama Lengkap"]').value;
-    let alamat = document.querySelector('input[placeholder="Alamat Lengkap"]').value;
+    let nama = document.querySelector('input').value;
+    let alamat = document.querySelectorAll('input')[1].value;
     let produk = document.querySelector('select').value;
 
-    if(nama === "" || alamat === "" || produk === "Pilih Produk"){
-        alert("Lengkapi data dulu!");
-        return;
-    }
-
-    let pesan = 
-`Halo, saya ingin membeli emas ANTAM
-
+    let pesan = `Halo saya mau beli emas:
 Nama: ${nama}
 Alamat: ${alamat}
 Produk: ${produk}`;
@@ -263,13 +232,12 @@ new Chart(document.getElementById('chart'), {
     data: {
         labels: ['Sen','Sel','Rab','Kam','Jum','Sab','Min'],
         datasets: [{
-            label: 'Harga Emas',
-            data: [2800,2850,2900,2880,2950,3000,3050],
-            borderWidth: 2
+            label: 'Harga',
+            data: [2800,2850,2900,2880,2950,3000,3050]
         }]
     }
 });
 </script>
 
 </body>
-</html>
+    </html>
