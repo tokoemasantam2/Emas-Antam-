@@ -15,26 +15,27 @@ body{
     font-family:'Poppins',sans-serif;
     margin:0;
     color:#fff;
-    background:#000;
+
+    /* BACKGROUND CADANGAN */
+    background:
+    radial-gradient(circle at 20% 30%, rgba(255,215,0,0.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,215,0,0.1), transparent 40%),
+    linear-gradient(135deg,#000000,#0a0a0a,#1a1a1a);
+
+    background-attachment: fixed;
 }
 
-/* BACKGROUND PASTI MUNCUL */
-#bg{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-2;
+/* OVERLAY */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    pointer-events:none;
+    z-index:-1;
 }
 
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.7);
-  z-index:-1;
-}
+/* ================= ASLI KAMU ================= */
 
 header{
     background: linear-gradient(90deg,#c9a227,#ffd700,#c9a227);
@@ -64,6 +65,26 @@ marquee{
     box-shadow:0 0 20px rgba(255,215,0,0.2);
 }
 
+.promo{
+    position:relative;
+    overflow:hidden;
+}
+.promo::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+    url('bg.jpg');
+    background-size:cover;
+    background-position:center;
+    z-index:0;
+}
+.promo *{
+    position:relative;
+    z-index:2;
+}
+
 h2{
     color:#ffd700;
 }
@@ -83,6 +104,8 @@ h2{
     border-radius:8px;
     font-weight:bold;
     cursor:pointer;
+    display:inline-block;
+    text-decoration:none;
 }
 
 input,select{
@@ -123,84 +146,93 @@ footer{
 
 <body>
 
-<img id="bg" src="bg.jpg">
-<div class="overlay"></div>
+<!-- 🔥 BACKGROUND UTAMA (PASTI MUNCUL) -->
+<img src="bg.jpg" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+">
 
 <header>
 TOKO EMAS ANTAM OFFICIAL
 </header>
 
 <marquee>
-Harga emas mengikuti pasar dunia | COD seluruh Indonesia | 100% ORIGINAL ANTAM
+Harga emas mengikuti pasar dunia | Pengiriman COD seluruh Indonesia | 100% ORIGINAL ANTAM
 </marquee>
 
 <div class="container">
 
-<div class="card">
+<div class="card promo">
 <h2>🔥 PROMO HARI INI</h2>
-<p>Beli emas hari ini dapat DISKON + BONUS ongkir!</p>
+<p>Beli emas hari ini dapat DISKON + BONUS ongkir khusus wilayah tertentu!</p>
 </div>
 
 <div class="card">
 <h2>💎 Produk Emas ANTAM</h2>
 <div class="product"><span>1 gram</span><span>Rp 2.800.000</span></div>
+<div class="product"><span>2 gram</span><span>Rp 5.660.000</span></div>
+<div class="product"><span>3 gram</span><span>Rp 8.400.000</span></div>
 <div class="product"><span>5 gram</span><span>Rp 14.060.000</span></div>
 <div class="product"><span>10 gram</span><span>Rp 28.900.000</span></div>
+<div class="product"><span>25 gram</span><span>Rp 70.080.000</span></div>
 </div>
 
 <div class="card">
-<h2>🚚 Pengiriman</h2>
-<p>✔ COD (Bayar di Tempat)</p>
-<p>✔ JNE / J&T / SiCepat</p>
-<p>✔ Packing aman & diasuransikan</p>
-</div>
-
-<div class="card">
-<h2>📍 Alamat Resmi</h2>
-<p>Jl. Sudirman No. 123<br>
-Jakarta Pusat<br>
-Indonesia</p>
-</div>
-
-<div class="card">
-<h2>📝 Form Pembelian</h2>
+<h2>📝 Form Pembelian Resmi</h2>
 <input type="text" placeholder="Nama Lengkap">
 <input type="text" placeholder="Alamat Lengkap">
 <select>
 <option>Pilih Produk</option>
 <option>1 gram</option>
+<option>2 gram</option>
+<option>3 gram</option>
 <option>5 gram</option>
 <option>10 gram</option>
+<option>25 gram</option>
 </select>
 <button class="btn" onclick="order()">Pesan Sekarang</button>
 </div>
 
 <div class="card">
-<h2>📊 Grafik Harga</h2>
+<h2>📊 Grafik Harga Emas</h2>
 <canvas id="chart"></canvas>
 </div>
 
 <div class="card">
-<h2>⭐ Review Pelanggan</h2>
+<h2>📜 Legalitas & Izin</h2>
+<p>Terdaftar resmi dan menjual produk ANTAM bersertifikat.</p>
+</div>
+
+<div class="card">
+<h2>🏅 Sertifikat Digital</h2>
+<p>Setiap pembelian disertai sertifikat keaslian ANTAM.</p>
+</div>
+
+<div class="card">
+<h2>⭐ Testimoni Pelanggan</h2>
 
 <div class="review-box">
-<strong>Andi</strong><br>
+<strong>Andi Saputra</strong><br>
 ⭐⭐⭐⭐⭐<br>
-Emas asli, pengiriman cepat!
+<span>Transaksi sangat aman, emas asli dan bersertifikat.</span>
 </div>
 
 <div class="review-box">
-<strong>Siti</strong><br>
+<strong>Siti Rahma</strong><br>
 ⭐⭐⭐⭐⭐<br>
-Pelayanan bagus & terpercaya
+<span>Pelayanan ramah dan profesional.</span>
 </div>
 
-<div class="review-box">
-<strong>Budi</strong><br>
-⭐⭐⭐⭐⭐<br>
-Sudah beli 2x aman
 </div>
 
+<div class="card">
+<h2>⚠️ Himbauan</h2>
+<p>Hati-hati penipuan, hanya transaksi melalui nomor resmi kami.</p>
 </div>
 
 </div>
@@ -215,11 +247,18 @@ Sudah beli 2x aman
 function order(){
     let nomor = "628127835535";
 
-    let nama = document.querySelector('input').value;
-    let alamat = document.querySelectorAll('input')[1].value;
+    let nama = document.querySelector('input[placeholder="Nama Lengkap"]').value;
+    let alamat = document.querySelector('input[placeholder="Alamat Lengkap"]').value;
     let produk = document.querySelector('select').value;
 
-    let pesan = `Halo saya mau beli emas:
+    if(nama === "" || alamat === "" || produk === "Pilih Produk"){
+        alert("Lengkapi data dulu!");
+        return;
+    }
+
+    let pesan = 
+`Halo, saya ingin membeli emas ANTAM
+
 Nama: ${nama}
 Alamat: ${alamat}
 Produk: ${produk}`;
@@ -232,8 +271,9 @@ new Chart(document.getElementById('chart'), {
     data: {
         labels: ['Sen','Sel','Rab','Kam','Jum','Sab','Min'],
         datasets: [{
-            label: 'Harga',
-            data: [2800,2850,2900,2880,2950,3000,3050]
+            label: 'Harga Emas',
+            data: [2800,2850,2900,2880,2950,3000,3050],
+            borderWidth: 2
         }]
     }
 });
