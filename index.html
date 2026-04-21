@@ -12,16 +12,15 @@
 
 <style>
 
-/* ================= BACKGROUND (DITAMBAH SAJA) ================= */
+/* ================= BACKGROUND ================= */
 body{
     font-family:'Poppins',sans-serif;
     margin:0;
     color:#fff;
 
-    /* BACKGROUND GAMBAR KAMU */
-    background: 
+    background:
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-    url('images/bg-emas.jpg');
+    url('https://tokoemasantam2.github.io/Emas-Antam-/bg.jpg');
 
     background-size: cover;
     background-position: center;
@@ -57,7 +56,7 @@ marquee{
     box-shadow:0 0 20px rgba(255,215,0,0.2);
 }
 
-/* promo tetap */
+/* ================= PROMO ================= */
 .promo{
     position:relative;
     overflow:hidden;
@@ -68,7 +67,7 @@ marquee{
     inset:0;
     background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-    url('images/bg-emas.jpg');
+    url('https://tokoemasantam2.github.io/Emas-Antam-/bg.jpg');
     background-size:cover;
     background-position:center;
     z-index:0;
@@ -236,6 +235,20 @@ Produk: ${produk}`;
 
     window.open("https://wa.me/"+nomor+"?text="+encodeURIComponent(pesan));
 }
+
+const ctx = document.getElementById('chart');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Sen','Sel','Rab','Kam','Jum','Sab','Min'],
+        datasets: [{
+            label: 'Harga Emas',
+            data: [2800,2850,2900,2880,2950,3000,3050],
+            borderWidth: 2
+        }]
+    }
+});
 </script>
 
 </body>
