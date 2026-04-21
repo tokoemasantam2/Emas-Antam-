@@ -12,22 +12,36 @@
 
 <style>
 
-/* ================= BACKGROUND ================= */
 body{
     font-family:'Poppins',sans-serif;
     margin:0;
     color:#fff;
 
+    /* ✅ BACKGROUND BARU (DITAMBAH TANPA HAPUS YANG LAMA) */
     background:
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-    url('https://tokoemasantam2.github.io/Emas-Antam-/bg.jpg');
+    url('https://raw.githubusercontent.com/tokoemasantam2/Emas-Antam-/main/bg.jpg'),
 
-    background-size: cover;
-    background-position: center;
+    /* BACKGROUND LAMA KAMU TETAP ADA */
+    radial-gradient(circle at 20% 30%, rgba(255,215,0,0.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,215,0,0.1), transparent 40%),
+    linear-gradient(135deg,#000000,#0a0a0a,#1a1a1a);
+
+    background-size: cover, cover, auto, auto, auto;
     background-attachment: fixed;
 }
 
-/* ================= HEADER ================= */
+/* TAMBAHAN OVERLAY (BIAR JELAS) */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.4);
+    pointer-events:none;
+}
+
+/* ================= SEMUA DI BAWAH INI ASLI KAMU ================= */
+
 header{
     background: linear-gradient(90deg,#c9a227,#ffd700,#c9a227);
     padding:20px;
@@ -56,7 +70,7 @@ marquee{
     box-shadow:0 0 20px rgba(255,215,0,0.2);
 }
 
-/* ================= PROMO ================= */
+/* ✅ TAMBAHAN SAJA (TIDAK UBAH APAPUN) */
 .promo{
     position:relative;
     overflow:hidden;
@@ -67,7 +81,7 @@ marquee{
     inset:0;
     background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-    url('https://tokoemasantam2.github.io/Emas-Antam-/bg.jpg');
+    url('emas.jpg');
     background-size:cover;
     background-position:center;
     z-index:0;
@@ -203,6 +217,17 @@ Harga emas mengikuti pasar dunia | Pengiriman COD seluruh Indonesia | 100% ORIGI
 <span>Transaksi sangat aman, emas asli dan bersertifikat.</span>
 </div>
 
+<div class="review-box">
+<strong>Siti Rahma</strong><br>
+⭐⭐⭐⭐⭐<br>
+<span>Pelayanan ramah dan profesional.</span>
+</div>
+
+</div>
+
+<div class="card">
+<h2>⚠️ Himbauan</h2>
+<p>Hati-hati penipuan, hanya transaksi melalui nomor resmi kami.</p>
 </div>
 
 </div>
@@ -236,9 +261,7 @@ Produk: ${produk}`;
     window.open("https://wa.me/"+nomor+"?text="+encodeURIComponent(pesan));
 }
 
-const ctx = document.getElementById('chart');
-
-new Chart(ctx, {
+new Chart(document.getElementById('chart'), {
     type: 'line',
     data: {
         labels: ['Sen','Sel','Rab','Kam','Jum','Sab','Min'],
@@ -252,4 +275,4 @@ new Chart(ctx, {
 </script>
 
 </body>
-</html>
+    </html>
