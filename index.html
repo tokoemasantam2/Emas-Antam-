@@ -16,7 +16,6 @@ body{
     margin:0;
     color:#fff;
 
-    /* BACKGROUND CADANGAN */
     background:
     radial-gradient(circle at 20% 30%, rgba(255,215,0,0.15), transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(255,215,0,0.1), transparent 40%),
@@ -25,7 +24,6 @@ body{
     background-attachment: fixed;
 }
 
-/* OVERLAY */
 body::before{
     content:"";
     position:fixed;
@@ -34,8 +32,6 @@ body::before{
     pointer-events:none;
     z-index:-1;
 }
-
-/* ================= ASLI KAMU ================= */
 
 header{
     background: linear-gradient(90deg,#c9a227,#ffd700,#c9a227);
@@ -63,26 +59,6 @@ marquee{
     padding:20px;
     margin-bottom:20px;
     box-shadow:0 0 20px rgba(255,215,0,0.2);
-}
-
-.promo{
-    position:relative;
-    overflow:hidden;
-}
-.promo::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
-    url('bg.jpg');
-    background-size:cover;
-    background-position:center;
-    z-index:0;
-}
-.promo *{
-    position:relative;
-    z-index:2;
 }
 
 h2{
@@ -125,6 +101,7 @@ input,select{
     padding:15px;
     border-radius:50%;
     font-size:20px;
+    text-decoration:none;
 }
 
 footer{
@@ -146,17 +123,6 @@ footer{
 
 <body>
 
-<!-- 🔥 BACKGROUND UTAMA (PASTI MUNCUL) -->
-<img src="bg.jpg" style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
-">
-
 <header>
 TOKO EMAS ANTAM OFFICIAL
 </header>
@@ -167,16 +133,10 @@ Harga emas mengikuti pasar dunia | Pengiriman COD seluruh Indonesia | 100% ORIGI
 
 <div class="container">
 
-<!-- ✅ TAMBAHAN: HUBUNGI WA -->
 <div class="card">
 <h2>📞 Hubungi Kami</h2>
 <p>WhatsApp: <b>083172766800</b></p>
 <a href="https://wa.me/6283172766800" class="btn">💬 Chat WhatsApp Sekarang</a>
-</div>
-
-<div class="card promo">
-<h2>🔥 PROMO HARI INI</h2>
-<p>Beli emas hari ini dapat DISKON + BONUS ongkir khusus wilayah tertentu!</p>
 </div>
 
 <div class="card">
@@ -187,6 +147,13 @@ Harga emas mengikuti pasar dunia | Pengiriman COD seluruh Indonesia | 100% ORIGI
 <div class="product"><span>5 gram</span><span>Rp 14.060.000</span></div>
 <div class="product"><span>10 gram</span><span>Rp 28.900.000</span></div>
 <div class="product"><span>25 gram</span><span>Rp 70.080.000</span></div>
+</div>
+
+<div class="card">
+<h2>🏦 Rekening Pembayaran</h2>
+<p><b>Bank:</b> BNI</p>
+<p><b>No Rekening:</b> 2008767103</p>
+<p><b>Atas Nama:</b> M ILHAM SIRAIT</p>
 </div>
 
 <div class="card">
@@ -211,66 +178,42 @@ Harga emas mengikuti pasar dunia | Pengiriman COD seluruh Indonesia | 100% ORIGI
 </div>
 
 <div class="card">
-<h2>📜 Legalitas & Izin</h2>
-<p>Terdaftar resmi dan menjual produk ANTAM bersertifikat.</p>
-</div>
-
-<div class="card">
-<h2>🏅 Sertifikat Digital</h2>
-<p>Setiap pembelian disertai sertifikat keaslian ANTAM.</p>
-</div>
-
-<div class="card">
 <h2>⭐ Testimoni Pelanggan</h2>
 
 <div class="review-box">
 <strong>Andi Saputra</strong><br>
 ⭐⭐⭐⭐⭐<br>
-<span>Transaksi sangat aman, emas asli dan bersertifikat.</span>
+Transaksi sangat aman, emas asli dan bersertifikat.
 </div>
 
 <div class="review-box">
 <strong>Siti Rahma</strong><br>
 ⭐⭐⭐⭐⭐<br>
-<span>Pelayanan ramah dan profesional.</span>
+Pelayanan cepat dan terpercaya.
 </div>
 
 </div>
 
-<!-- ✅ TAMBAHAN: ALAMAT -->
+</div>
+
+<div class="container">
 <div class="card">
-<h2>📍 Alamat Toko Resmi</h2>
+<h2>📍 Alamat Toko</h2>
 <p>
-BELM Medan: Mandiri Building,<br>
-Jl. Imam Bonjol No.16D Lt 1 Unit 101,<br>
-Petisah Tengah, Kec. Medan Petisah,<br>
-Kota Medan, Sumatera Utara 20112.
+ANTAM GOLD<br>
+ALEX<br>
+M ILHAM SIRAIT<br><br>
+Gedung Aneka Tambang<br>
+Jl. Letjen T.B. Simatupang No. 1<br>
+Jakarta
 </p>
 </div>
-
-<!-- ✅ TAMBAHAN: PENGIRIMAN -->
-<div class="card">
-<h2>🚚 Pengiriman</h2>
-<p>
-Kami melayani pengiriman ke seluruh Indonesia.<br>
-✔ COD (Bayar di Tempat)<br>
-✔ Aman & Bergaransi<br>
-✔ Packing Rapi & Profesional
-</p>
-</div>
-
-<div class="card">
-<h2>⚠️ Himbauan</h2>
-<p>Hati-hati penipuan, hanya transaksi melalui nomor resmi kami.</p>
-</div>
-
 </div>
 
 <footer>
 © 2026 Toko Emas ANTAM Official
 </footer>
 
-<!-- ✅ WA SUDAH DIGANTI -->
 <a href="https://wa.me/6283172766800" class="wa">💬</a>
 
 <script>
@@ -286,7 +229,7 @@ function order(){
         return;
     }
 
-    let pesan = 
+    let pesan =
 `Halo, saya ingin membeli emas ANTAM
 
 Nama: ${nama}
@@ -310,4 +253,4 @@ new Chart(document.getElementById('chart'), {
 </script>
 
 </body>
-    </html>
+</html>
