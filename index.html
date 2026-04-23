@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANTAM Official Gold Store</title>
+
+<title>Toko Emas ANTAM Official</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<!-- ✅ PDF LIBRARY -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
@@ -20,6 +18,7 @@ body{
     color:#fff;
 }
 
+/* HEADER */
 header{
     background:linear-gradient(90deg,#c9a227,#ffd700);
     color:#000;
@@ -28,27 +27,37 @@ header{
     font-size:20px;
     font-weight:bold;
 }
+header img{
+    height:40px;
+    vertical-align:middle;
+    margin-right:10px;
+}
 
+/* TRUST BAR */
 .trust{
     display:flex;
     justify-content:center;
     gap:20px;
     background:#111827;
     padding:10px;
+    font-size:13px;
 }
 
+/* MARQUEE */
 marquee{
     background:#000;
     color:#ffd700;
     padding:10px;
 }
 
+/* CONTAINER */
 .container{
     max-width:1100px;
     margin:auto;
     padding:20px;
 }
 
+/* CARD */
 .card{
     background:#1e293b;
     padding:20px;
@@ -57,6 +66,7 @@ marquee{
     box-shadow:0 0 20px rgba(255,215,0,0.1);
 }
 
+/* GRID */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -68,16 +78,16 @@ marquee{
     padding:15px;
     border-radius:12px;
     text-align:center;
+    background:#0f172a;
 }
-
 .product img{
     width:100%;
     height:150px;
     object-fit:cover;
     border-radius:10px;
-    margin-top:10px;
 }
 
+/* FORM */
 input, select{
     width:100%;
     padding:12px;
@@ -98,12 +108,21 @@ input, select{
     cursor:pointer;
 }
 
+/* BADGE */
 .badge{
     background:green;
     padding:5px 10px;
     border-radius:20px;
+    font-size:12px;
 }
 
+.preview{
+    margin-top:10px;
+    max-width:100%;
+    border-radius:10px;
+}
+
+/* WA */
 .wa{
     position:fixed;
     bottom:20px;
@@ -114,6 +133,7 @@ input, select{
     color:#fff;
 }
 
+/* FOOTER */
 footer{
     background:#000;
     text-align:center;
@@ -125,17 +145,18 @@ footer{
 <body>
 
 <header>
+<img src="logo.png">
 PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 </header>
 
 <div class="trust">
 <span class="badge">✔ Situs Resmi</span>
-<span class="badge">🔒 Aman</span>
-<span class="badge">📦 COD</span>
+<span class="badge">🔒 Transaksi Aman</span>
+<span class="badge">📦 COD Seluruh Indonesia</span>
 </div>
 
 <marquee>
-⚠️ Transaksi resmi hanya melalui WhatsApp 083172766800
+⚠️ Hanya melayani transaksi melalui website ini & WhatsApp resmi 083172766800
 </marquee>
 
 <div class="container">
@@ -151,46 +172,17 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 <h2>Produk Emas ANTAM</h2>
 <div class="grid">
 
-<div class="product">
-<h3>1 Gram</h3>
-<p><b>Rp 2.800.000</b></p>
-<img src="IMG-20260417-1GRAM.jpg">
-</div>
-
-<div class="product">
-<h3>3 Gram</h3>
-<p><b>Rp 8.400.000</b></p>
-<img src="IMG-20260417-3GRAM.jpg">
-</div>
-
-<div class="product">
-<h3>5 Gram</h3>
-<p><b>Rp 14.060.000</b></p>
-<img src="IMG-20260417-5GRAM.jpg">
-</div>
-
-<div class="product">
-<h3>10 Gram</h3>
-<p><b>Rp 28.900.000</b></p>
-<img src="IMG-20260417-10GRAM.jpg">
-</div>
-
-<div class="product">
-<h3>25 Gram</h3>
-<p><b>Rp 70.080.000</b></p>
-<img src="IMG-20260417-25GRAM.jpg">
-</div>
-
-<div class="product">
-<h3>50 Gram</h3>
-<p><b>Rp 140.000.000</b></p>
-<img src="IMG-20260417-50GRAM.jpg">
-</div>
+<div class="product">1 Gram<br><b>Rp 2.800.000</b><img src="IMG-20260417-1GRAM.jpg"></div>
+<div class="product">3 Gram<br><b>Rp 8.400.000</b><img src="IMG-20260417-3GRAM.jpg"></div>
+<div class="product">5 Gram<br><b>Rp 14.060.000</b><img src="IMG-20260417-5GRAM.jpg"></div>
+<div class="product">10 Gram<br><b>Rp 28.900.000</b><img src="IMG-20260417-10GRAM.jpg"></div>
+<div class="product">25 Gram<br><b>Rp 70.080.000</b><img src="IMG-20260417-25GRAM.jpg"></div>
+<div class="product">50 Gram<br><b>Rp 140.000.000</b><img src="IMG-20260417-50GRAM.jpg"></div>
 
 </div>
 </div>
 
-<!-- HARGA -->
+<!-- REALTIME -->
 <div class="card">
 <h2>Harga Emas Hari Ini</h2>
 <h3 id="harga">Rp 1.950.000 / gram</h3>
@@ -204,10 +196,10 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 
 <!-- FORM -->
 <div class="card">
-<h2>Form Pembelian</h2>
+<h2>Form Pembelian Resmi</h2>
 
-<input id="nama" placeholder="Nama">
-<input id="alamat" placeholder="Alamat">
+<input id="nama" placeholder="Nama Lengkap">
+<input id="alamat" placeholder="Alamat Lengkap">
 
 <select id="produk">
 <option value="">Pilih Produk</option>
@@ -219,8 +211,51 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 <option>50 Gram - 140.000.000</option>
 </select>
 
+<input type="file" id="bukti" onchange="previewBukti()">
+<img id="preview" class="preview">
+
 <button class="btn" onclick="order()">Buat Pesanan</button>
 <p id="invoice"></p>
+
+</div>
+
+<!-- KEAMANAN -->
+<div class="card">
+<h2>Keamanan Transaksi</h2>
+<p>✔ Sistem terenkripsi</p>
+<p>✔ Verifikasi manual admin</p>
+<p>✔ Garansi 100% uang kembali</p>
+</div>
+
+<!-- SERTIFIKAT -->
+<div class="card">
+<h2>Sertifikat Digital</h2>
+<p>Dilengkapi QR Code & sertifikat resmi ANTAM</p>
+</div>
+
+<!-- TESTIMONI -->
+<div class="card">
+<h2>Testimoni</h2>
+<p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
+<p>⭐⭐⭐⭐⭐ COD cepat sampai</p>
+</div>
+
+<!-- ALAMAT -->
+<div class="card">
+<h2>Alamat Kantor Pusat Resmi</h2>
+
+<p><b>PT ANTAM GOLD INDONESIA</b></p>
+
+<p>
+Gedung Aneka Tambang (ANTAM Tower)<br>
+Jl. Letjen T.B. Simatupang No.1<br>
+Jakarta Selatan
+</p>
+
+<iframe 
+src="https://maps.google.com/maps?q=gedung%20antam%20jakarta&output=embed"
+width="100%" height="250">
+</iframe>
 
 </div>
 
@@ -230,13 +265,6 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 <p><b>Bank BNI</b></p>
 <p>No Rekening: <b>2008767103</b></p>
 <p>Atas Nama: <b>M ILHAM SIRAIT</b></p>
-</div>
-
-<!-- TESTIMONI -->
-<div class="card">
-<h2>Testimoni</h2>
-<p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
-<p>⭐⭐⭐⭐⭐ COD cepat sampai</p>
 </div>
 
 </div>
@@ -249,63 +277,60 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 
 <script>
 
-/* HARGA RANDOM */
+// harga realtime
 setInterval(()=>{
 let harga = 1900000 + Math.floor(Math.random()*40000);
 document.getElementById("harga").innerText = "Rp "+harga.toLocaleString()+" / gram";
 },3000);
 
-/* ORDER + PDF */
+// preview bukti
+function previewBukti(){
+let file = document.getElementById("bukti").files[0];
+if(file){
+document.getElementById("preview").src = URL.createObjectURL(file);
+}
+}
+
+// order + invoice + PDF + WA
 function order(){
 let nama = document.getElementById("nama").value;
 let alamat = document.getElementById("alamat").value;
 let produk = document.getElementById("produk").value;
 
 if(!nama || !alamat || !produk){
-alert("Isi semua data!");
+alert("Lengkapi data!");
 return;
 }
 
-let tanggal = new Date().toLocaleString();
 let invoice = "INV"+Math.floor(Math.random()*999999);
+let tanggal = new Date().toLocaleString();
 
-// tampil invoice
 document.getElementById("invoice").innerText =
 "Invoice: "+invoice+" | "+tanggal;
 
-// WA
-let text = "INVOICE:"+invoice+
-"%0ATanggal:"+tanggal+
-"%0ANama:"+nama+
-"%0AAlamat:"+alamat+
-"%0AProduk:"+produk+
-"%0A%0APembayaran:%0ABNI 2008767103 a/n M ILHAM SIRAIT";
-
-// PDF
 const { jsPDF } = window.jspdf;
 let doc = new jsPDF();
 
-doc.setFontSize(16);
 doc.text("INVOICE EMAS ANTAM", 20, 20);
-
-doc.setFontSize(12);
-doc.text("Invoice: "+invoice, 20, 40);
+doc.text("No: "+invoice, 20, 40);
 doc.text("Tanggal: "+tanggal, 20, 50);
 doc.text("Nama: "+nama, 20, 70);
 doc.text("Alamat: "+alamat, 20, 80);
 doc.text("Produk: "+produk, 20, 90);
-
-doc.text("Pembayaran:", 20, 110);
-doc.text("BNI - 2008767103", 20, 120);
-doc.text("A/N M ILHAM SIRAIT", 20, 130);
+doc.text("BNI 2008767103", 20, 110);
+doc.text("A/N M ILHAM SIRAIT", 20, 120);
 
 doc.save("Invoice-"+invoice+".pdf");
 
-// buka WA
+let text = "INVOICE:"+invoice+
+"%0ANama:"+nama+
+"%0AProduk:"+produk+
+"%0ABayar ke BNI 2008767103";
+
 window.open("https://wa.me/6283172766800?text="+text);
 }
 
-/* CHART */
+// chart
 new Chart(document.getElementById("chart"), {
 type: 'line',
 data: {
@@ -321,4 +346,4 @@ borderWidth:2
 </script>
 
 </body>
-    </html>
+                    </html>
