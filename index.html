@@ -3,347 +3,400 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Toko Emas ANTAM Official</title>
+<title>ANTAM SUPER ELITE GOLD STORE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-body{
-    margin:0;
-    font-family:Poppins;
-    background:#0f172a;
-    color:#fff;
+:root{
+  --gold1:#d4af37;
+  --gold2:#ffd700;
+  --gold3:#fff3b0;
 }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Poppins,system-ui;
+  background:radial-gradient(circle at top,#1a1a1a,#000);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* LOADER */
+#loader{
+  position:fixed; inset:0;
+  background:#000;
+  display:flex; align-items:center; justify-content:center;
+  z-index:9999;
+}
+.loader-ring{
+  width:80px; height:80px; border-radius:50%;
+  border:6px solid rgba(255,215,0,.15);
+  border-top-color:var(--gold2);
+  animation:spin 1s linear infinite;
+  box-shadow:0 0 30px rgba(255,215,0,.5);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 /* HEADER */
 header{
-    background:linear-gradient(90deg,#c9a227,#ffd700);
-    color:#000;
-    padding:15px;
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
+  position:sticky; top:0; z-index:10;
+  background:linear-gradient(90deg,var(--gold1),var(--gold2),var(--gold3));
+  color:#000;
+  padding:16px;
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:1px;
+  box-shadow:0 0 40px rgba(255,215,0,.6);
 }
 header img{
-    height:40px;
-    vertical-align:middle;
-    margin-right:10px;
+  height:46px; vertical-align:middle; margin-right:10px;
+  filter:drop-shadow(0 0 6px gold);
 }
 
-/* TRUST BAR */
+/* TRUST */
 .trust{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    background:#111827;
-    padding:10px;
-    font-size:13px;
+  display:flex; justify-content:center; gap:18px;
+  background:rgba(0,0,0,.7);
+  padding:10px;
+  backdrop-filter:blur(12px);
+}
+.badge{
+  background:linear-gradient(90deg,#00ff88,#00cc66);
+  padding:6px 12px; border-radius:20px; font-size:12px; color:#000;
 }
 
 /* MARQUEE */
-marquee{
-    background:#000;
-    color:#ffd700;
-    padding:10px;
-}
+marquee{background:#000;color:var(--gold2);padding:10px}
 
 /* CONTAINER */
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
-}
+.container{max-width:1150px;margin:auto;padding:20px}
 
-/* CARD */
+/* CARD (GLASS) */
 .card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
-    box-shadow:0 0 20px rgba(255,215,0,0.1);
+  position:relative;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(18px);
+  padding:22px;
+  border-radius:20px;
+  margin-bottom:22px;
+  box-shadow:0 0 30px rgba(255,215,0,.12);
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute; inset:-2px;
+  background:linear-gradient(120deg,transparent,rgba(255,215,0,.3),transparent);
+  filter:blur(20px);
+  opacity:.3; pointer-events:none;
 }
 
 /* GRID */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:18px;
 }
 
+/* PRODUCT */
 .product{
-    border:1px solid gold;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
-    background:#0f172a;
+  background:rgba(0,0,0,.6);
+  border:1px solid rgba(255,215,0,.35);
+  padding:14px;
+  border-radius:16px;
+  text-align:center;
+  transition:.35s;
+  position:relative; overflow:hidden;
+}
+.product:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 0 30px rgba(255,215,0,.6);
 }
 .product img{
-    width:100%;
-    height:150px;
-    object-fit:cover;
-    border-radius:10px;
+  width:100%; height:160px; object-fit:cover; border-radius:10px;
+}
+.product .shine{
+  position:absolute; top:-50%; left:-50%;
+  width:200%; height:200%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);
+  transform:rotate(25deg);
+  animation:shine 3.5s linear infinite;
+}
+@keyframes shine{
+  0%{transform:translateX(-100%) rotate(25deg)}
+  100%{transform:translateX(100%) rotate(25deg)}
 }
 
-/* FORM */
-input, select{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border-radius:10px;
-    border:none;
+/* INPUT */
+input,select{
+  width:100%; padding:12px; margin-top:10px;
+  border-radius:12px; border:none; outline:none;
+  background:#0b0b0b; color:#fff;
+  box-shadow:inset 0 0 10px rgba(255,215,0,.15);
 }
 
+/* BUTTON */
 .btn{
-    width:100%;
-    background:gold;
-    color:#000;
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    margin-top:10px;
-    font-weight:bold;
-    cursor:pointer;
+  width:100%;
+  background:linear-gradient(90deg,var(--gold2),var(--gold1));
+  color:#000; padding:12px; border:none; border-radius:12px;
+  margin-top:12px; font-weight:700; cursor:pointer;
+  box-shadow:0 0 18px rgba(255,215,0,.7);
+  transition:.2s;
 }
+.btn:hover{transform:scale(1.04)}
 
-/* BADGE */
-.badge{
-    background:green;
-    padding:5px 10px;
-    border-radius:20px;
-    font-size:12px;
-}
-
-.preview{
-    margin-top:10px;
-    max-width:100%;
-    border-radius:10px;
-}
+/* PREVIEW */
+.preview{margin-top:10px; max-width:100%; border-radius:10px}
 
 /* WA */
 .wa{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:green;
-    padding:15px;
-    border-radius:50%;
-    color:#fff;
+  position:fixed; bottom:20px; right:20px;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  padding:16px; border-radius:50%;
+  box-shadow:0 0 25px #25d366;
 }
 
 /* FOOTER */
 footer{
-    background:#000;
-    text-align:center;
-    padding:20px;
+  background:#000; text-align:center; padding:20px; color:#aaa;
+}
+
+/* WATERMARK */
+body::after{
+  content:"ANTAM ELITE";
+  position:fixed; bottom:10px; left:10px;
+  font-size:12px; opacity:.08; letter-spacing:2px;
 }
 </style>
 </head>
 
 <body>
 
+<div id="loader"><div class="loader-ring"></div></div>
+
 <header>
-<img src="logo.png">
-PT ANTAM GOLD INDONESIA • OFFICIAL STORE
+  <img src="logo.png">
+  PT ANTAM GOLD INDONESIA • SUPER ELITE
 </header>
 
 <div class="trust">
-<span class="badge">✔ Situs Resmi</span>
-<span class="badge">🔒 Transaksi Aman</span>
-<span class="badge">📦 COD Seluruh Indonesia</span>
+  <span class="badge">✔ Situs Resmi</span>
+  <span class="badge">🔒 Transaksi Aman</span>
+  <span class="badge">📦 COD Seluruh Indonesia</span>
 </div>
 
-<marquee>
-⚠️ Hanya melayani transaksi melalui website ini & WhatsApp resmi 083172766800
-</marquee>
+<marquee>⚠️ Transaksi resmi hanya melalui WhatsApp 083172766800</marquee>
 
 <div class="container">
 
 <!-- PROMO -->
 <div class="card">
-<h2>Promo Eksklusif Hari Ini</h2>
-<p>Diskon hingga 10% + Gratis Ongkir Nasional</p>
+  <h2>Promo Eksklusif Hari Ini</h2>
+  <p>Diskon hingga 10% + Gratis Ongkir Nasional</p>
 </div>
 
 <!-- PRODUK -->
 <div class="card">
-<h2>Produk Emas ANTAM</h2>
-<div class="grid">
+  <h2>Produk Emas ANTAM</h2>
+  <div class="grid">
 
-<div class="product">1 Gram<br><b>Rp 2.800.000</b><img src="IMG-20260417-1GRAM.jpg"></div>
-<div class="product">3 Gram<br><b>Rp 8.400.000</b><img src="IMG-20260417-3GRAM.jpg"></div>
-<div class="product">5 Gram<br><b>Rp 14.060.000</b><img src="IMG-20260417-5GRAM.jpg"></div>
-<div class="product">10 Gram<br><b>Rp 28.900.000</b><img src="IMG-20260417-10GRAM.jpg"></div>
-<div class="product">25 Gram<br><b>Rp 70.080.000</b><img src="IMG-20260417-25GRAM.jpg"></div>
-<div class="product">50 Gram<br><b>Rp 140.000.000</b><img src="IMG-20260417-50GRAM.jpg"></div>
+    <div class="product">
+      <div class="shine"></div>
+      1 Gram<br><b>Rp 2.800.000</b>
+      <img src="IMG-20260417-1GRAM.jpg">
+    </div>
 
-</div>
+    <div class="product">
+      <div class="shine"></div>
+      3 Gram<br><b>Rp 8.400.000</b>
+      <img src="IMG-20260417-3GRAM.jpg">
+    </div>
+
+    <div class="product">
+      <div class="shine"></div>
+      5 Gram<br><b>Rp 14.060.000</b>
+      <img src="IMG-20260417-5GRAM.jpg">
+    </div>
+
+    <div class="product">
+      <div class="shine"></div>
+      10 Gram<br><b>Rp 28.900.000</b>
+      <img src="IMG-20260417-10GRAM.jpg">
+    </div>
+
+    <div class="product">
+      <div class="shine"></div>
+      25 Gram<br><b>Rp 70.080.000</b>
+      <img src="IMG-20260417-25GRAM.jpg">
+    </div>
+
+    <div class="product">
+      <div class="shine"></div>
+      50 Gram<br><b>Rp 140.000.000</b>
+      <img src="IMG-20260417-50GRAM.jpg">
+    </div>
+
+  </div>
 </div>
 
 <!-- REALTIME -->
 <div class="card">
-<h2>Harga Emas Hari Ini</h2>
-<h3 id="harga">Rp 1.950.000 / gram</h3>
+  <h2>Harga Emas Hari Ini</h2>
+  <h3 id="harga">Rp 1.950.000 / gram</h3>
 </div>
 
 <!-- GRAFIK -->
 <div class="card">
-<h2>Grafik Harga</h2>
-<canvas id="chart"></canvas>
+  <h2>Grafik Harga</h2>
+  <canvas id="chart"></canvas>
 </div>
 
 <!-- FORM -->
 <div class="card">
-<h2>Form Pembelian Resmi</h2>
+  <h2>Form Pembelian Resmi</h2>
 
-<input id="nama" placeholder="Nama Lengkap">
-<input id="alamat" placeholder="Alamat Lengkap">
+  <input id="nama" placeholder="Nama Lengkap">
+  <input id="alamat" placeholder="Alamat Lengkap">
 
-<select id="produk">
-<option value="">Pilih Produk</option>
-<option>1 Gram - 2.800.000</option>
-<option>3 Gram - 8.400.000</option>
-<option>5 Gram - 14.060.000</option>
-<option>10 Gram - 28.900.000</option>
-<option>25 Gram - 70.080.000</option>
-<option>50 Gram - 140.000.000</option>
-</select>
+  <select id="produk">
+    <option value="">Pilih Produk</option>
+    <option>1 Gram - 2.800.000</option>
+    <option>3 Gram - 8.400.000</option>
+    <option>5 Gram - 14.060.000</option>
+    <option>10 Gram - 28.900.000</option>
+    <option>25 Gram - 70.080.000</option>
+    <option>50 Gram - 140.000.000</option>
+  </select>
 
-<input type="file" id="bukti" onchange="previewBukti()">
-<img id="preview" class="preview">
+  <input type="file" id="bukti" onchange="previewBukti()">
+  <img id="preview" class="preview">
 
-<button class="btn" onclick="order()">Buat Pesanan</button>
-<p id="invoice"></p>
-
+  <button class="btn" onclick="order()">Buat Pesanan</button>
+  <p id="invoice"></p>
 </div>
 
 <!-- KEAMANAN -->
 <div class="card">
-<h2>Keamanan Transaksi</h2>
-<p>✔ Sistem terenkripsi</p>
-<p>✔ Verifikasi manual admin</p>
-<p>✔ Garansi 100% uang kembali</p>
+  <h2>Keamanan Transaksi</h2>
+  <p>✔ Sistem terenkripsi</p>
+  <p>✔ Verifikasi manual admin</p>
+  <p>✔ Garansi 100% uang kembali</p>
 </div>
 
 <!-- SERTIFIKAT -->
 <div class="card">
-<h2>Sertifikat Digital</h2>
-<p>Dilengkapi QR Code & sertifikat resmi ANTAM</p>
+  <h2>Sertifikat Digital</h2>
+  <p>Dilengkapi QR Code & sertifikat resmi ANTAM</p>
 </div>
 
 <!-- TESTIMONI -->
 <div class="card">
-<h2>Testimoni</h2>
-<p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
-<p>⭐⭐⭐⭐⭐ COD cepat sampai</p>
+  <h2>Testimoni</h2>
+  <p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
+  <p>⭐⭐⭐⭐⭐ COD cepat sampai</p>
 </div>
 
 <!-- ALAMAT -->
 <div class="card">
-<h2>Alamat Kantor Pusat Resmi</h2>
+  <h2>Alamat Kantor Pusat Resmi</h2>
+  <p><b>PT ANTAM GOLD INDONESIA</b></p>
+  <p>
+    Gedung Aneka Tambang (ANTAM Tower)<br>
+    Jl. Letjen T.B. Simatupang No.1<br>
+    Jakarta Selatan
+  </p>
 
-<p><b>PT ANTAM GOLD INDONESIA</b></p>
-
-<p>
-Gedung Aneka Tambang (ANTAM Tower)<br>
-Jl. Letjen T.B. Simatupang No.1<br>
-Jakarta Selatan
-</p>
-
-<iframe 
-src="https://maps.google.com/maps?q=gedung%20antam%20jakarta&output=embed"
-width="100%" height="250">
-</iframe>
-
+  <iframe
+    src="https://maps.google.com/maps?q=gedung%20antam%20jakarta&output=embed"
+    width="100%" height="250" style="border-radius:10px;border:0">
+  </iframe>
 </div>
 
 <!-- REKENING -->
 <div class="card">
-<h2>Pembayaran Resmi</h2>
-<p><b>Bank BNI</b></p>
-<p>No Rekening: <b>2008767103</b></p>
-<p>Atas Nama: <b>M ILHAM SIRAIT</b></p>
+  <h2>Pembayaran Resmi</h2>
+  <p><b>Bank BNI</b></p>
+  <p>No Rekening: <b>2008767103</b></p>
+  <p>Atas Nama: <b>M ILHAM SIRAIT</b></p>
 </div>
 
 </div>
 
 <a href="https://wa.me/6283172766800" class="wa">WA</a>
 
-<footer>
-© 2026 PT ANTAM GOLD INDONESIA
-</footer>
+<footer>© 2026 PT ANTAM GOLD INDONESIA</footer>
 
 <script>
+// loader
+window.onload=()=>setTimeout(()=>document.getElementById("loader").style.display="none",800);
 
 // harga realtime
 setInterval(()=>{
-let harga = 1900000 + Math.floor(Math.random()*40000);
-document.getElementById("harga").innerText = "Rp "+harga.toLocaleString()+" / gram";
+  let h=1900000+Math.floor(Math.random()*40000);
+  document.getElementById("harga").innerText="Rp "+h.toLocaleString()+" / gram";
 },3000);
 
 // preview bukti
 function previewBukti(){
-let file = document.getElementById("bukti").files[0];
-if(file){
-document.getElementById("preview").src = URL.createObjectURL(file);
-}
+  let f=document.getElementById("bukti").files[0];
+  if(f){document.getElementById("preview").src=URL.createObjectURL(f);}
 }
 
-// order + invoice + PDF + WA
+// order + PDF + WA
 function order(){
-let nama = document.getElementById("nama").value;
-let alamat = document.getElementById("alamat").value;
-let produk = document.getElementById("produk").value;
+  let nama=document.getElementById("nama").value;
+  let alamat=document.getElementById("alamat").value;
+  let produk=document.getElementById("produk").value;
 
-if(!nama || !alamat || !produk){
-alert("Lengkapi data!");
-return;
-}
+  if(!nama||!alamat||!produk){alert("Lengkapi data!");return;}
 
-let invoice = "INV"+Math.floor(Math.random()*999999);
-let tanggal = new Date().toLocaleString();
+  let inv="INV"+Math.floor(Math.random()*999999);
+  let tgl=new Date().toLocaleString();
 
-document.getElementById("invoice").innerText =
-"Invoice: "+invoice+" | "+tanggal;
+  document.getElementById("invoice").innerText="Invoice: "+inv+" | "+tgl;
 
-const { jsPDF } = window.jspdf;
-let doc = new jsPDF();
+  const {jsPDF}=window.jspdf;
+  let doc=new jsPDF();
 
-doc.text("INVOICE EMAS ANTAM", 20, 20);
-doc.text("No: "+invoice, 20, 40);
-doc.text("Tanggal: "+tanggal, 20, 50);
-doc.text("Nama: "+nama, 20, 70);
-doc.text("Alamat: "+alamat, 20, 80);
-doc.text("Produk: "+produk, 20, 90);
-doc.text("BNI 2008767103", 20, 110);
-doc.text("A/N M ILHAM SIRAIT", 20, 120);
+  doc.setFontSize(18);
+  doc.text("INVOICE EMAS ANTAM",20,20);
+  doc.setFontSize(12);
+  doc.text("No: "+inv,20,40);
+  doc.text("Tanggal: "+tgl,20,50);
+  doc.text("Nama: "+nama,20,70);
+  doc.text("Alamat: "+alamat,20,80);
+  doc.text("Produk: "+produk,20,90);
+  doc.text("Pembayaran:",20,110);
+  doc.text("BNI 2008767103",20,120);
+  doc.text("A/N M ILHAM SIRAIT",20,130);
 
-doc.save("Invoice-"+invoice+".pdf");
+  doc.save("Invoice-"+inv+".pdf");
 
-let text = "INVOICE:"+invoice+
-"%0ANama:"+nama+
-"%0AProduk:"+produk+
-"%0ABayar ke BNI 2008767103";
+  let text="INVOICE:"+inv+
+  "%0ANama:"+nama+
+  "%0AProduk:"+produk+
+  "%0ABayar ke BNI 2008767103";
 
-window.open("https://wa.me/6283172766800?text="+text);
+  window.open("https://wa.me/6283172766800?text="+text);
 }
 
 // chart
-new Chart(document.getElementById("chart"), {
-type: 'line',
-data: {
-labels: ['Sen','Sel','Rab','Kam','Jum','Sab','Min'],
-datasets: [{
-label: 'Harga',
-data: [1800,1850,1900,1950,2000,1980,2050],
-borderWidth:2
-}]
-}
+new Chart(document.getElementById("chart"),{
+  type:'line',
+  data:{
+    labels:['Sen','Sel','Rab','Kam','Jum','Sab','Min'],
+    datasets:[{
+      label:'Harga',
+      data:[1800,1850,1900,1950,2000,1980,2050],
+      borderWidth:2
+    }]
+  }
 });
-
 </script>
 
 </body>
-                    </html>
+        </html>
