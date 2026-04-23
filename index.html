@@ -72,6 +72,20 @@ marquee{
     border-radius:12px;
     text-align:center;
     background:#0f172a;
+    transition:0.3s;
+}
+
+.product:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 15px gold;
+}
+
+.product img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-top:10px;
 }
 
 /* FORM */
@@ -112,6 +126,8 @@ input, select{
     padding:15px;
     border-radius:50%;
     color:#fff;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 /* FOOTER */
@@ -150,13 +166,52 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 <!-- PRODUK -->
 <div class="card">
 <h2>Produk Emas ANTAM</h2>
+
 <div class="grid">
-<div class="product">1 Gram<br><b>Rp 2.800.000 <img src="IMG-20260417-1GRAM.jpg" height="200" width="250"></b></div>
-<div class="product">50 Gram<br><b>Rp 44.660.000 <img src="IMG-20260417-1GRAM.jpg" height="200" width="250"></b></div>
-<div class="product">3 Gram<br><b>Rp 8.400.000<img src="IMG-20260417-3GRAM.jpg" height="200" width="250"></b></div>
-<div class="product">5 Gram<br><b>Rp 14.060.000<img src="IMG-20260417-5GRAM.jpg" height="200" width="250"></b></div>
-<div class="product">10 Gram<br><b>Rp 28.900.000<img src="IMG-20260417-10GRAM.jpg" height="200" width="250"></b></div>
-<div class="product">25 Gram<br><b>Rp 70.080.000<img src="IMG-20260417-25GRAM.jpg" height="200" width="250"></div></b></div>
+
+<div class="product">
+<h3>1 Gram</h3>
+<p><b>Rp 2.800.000</b></p>
+<img src="IMG-20260417-1GRAM.jpg">
+</div>
+
+<div class="product">
+<h3>50 Gram</h3>
+<p><b>Rp 44.660.000</b></p>
+<img src="IMG-20260417-1GRAM.jpg">
+</div>
+
+<!-- PRODUK BARU 50 GRAM -->
+<div class="product">
+<h3>50 Gram (Batch Premium)</h3>
+<p><b>Rp 45.200.000</b></p>
+<img src="IMG-20260417-1GRAM.jpg">
+</div>
+
+<div class="product">
+<h3>3 Gram</h3>
+<p><b>Rp 8.400.000</b></p>
+<img src="IMG-20260417-3GRAM.jpg">
+</div>
+
+<div class="product">
+<h3>5 Gram</h3>
+<p><b>Rp 14.060.000</b></p>
+<img src="IMG-20260417-5GRAM.jpg">
+</div>
+
+<div class="product">
+<h3>10 Gram</h3>
+<p><b>Rp 28.900.000</b></p>
+<img src="IMG-20260417-10GRAM.jpg">
+</div>
+
+<div class="product">
+<h3>25 Gram</h3>
+<p><b>Rp 70.080.000</b></p>
+<img src="IMG-20260417-25GRAM.jpg">
+</div>
+
 </div>
 </div>
 
@@ -178,14 +233,15 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 
 <input id="nama" placeholder="Nama Lengkap">
 <input id="alamat" placeholder="Alamat Lengkap">
+
 <select id="produk">
 <option value="">Pilih Produk</option>
 <option>1 Gram - 2.800.000</option>
-<option>2 Gram - 5.660.000</option>
 <option>3 Gram - 8.400.000</option>
 <option>5 Gram - 14.060.000</option>
 <option>10 Gram - 28.900.000</option>
 <option>25 Gram - 70.080.000</option>
+<option>50 Gram - 45.200.000</option>
 </select>
 
 <button class="btn" onclick="order()">Buat Pesanan</button>
@@ -194,63 +250,11 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 
 </div>
 
-<!-- KEAMANAN -->
-<div class="card">
-<h2>Keamanan Transaksi</h2>
-<p>✔ Sistem terenkripsi</p>
-<p>✔ Verifikasi manual admin</p>
-<p>✔ Garansi 100% uang kembali</p>
-</div>
-
-<!-- SERTIFIKAT -->
-<div class="card">
-<h2>Sertifikat Digital</h2>
-<p>Dilengkapi QR Code & sertifikat resmi ANTAM</p>
-</div>
-
 <!-- TESTIMONI -->
 <div class="card">
 <h2>Testimoni</h2>
 <p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
 <p>⭐⭐⭐⭐⭐ COD cepat sampai</p>
-</div>
-
-<!-- ALAMAT PREMIUM -->
-<div class="card">
-<h2>Alamat Kantor Pusat Resmi</h2>
-
-<p><b>PT ANTAM GOLD INDONESIA</b></p>
-
-<p>
-Gedung Aneka Tambang (ANTAM Tower)<br>
-Lantai 1 – Unit Penjualan Resmi<br>
-Jl. Letjen T.B. Simatupang No.1<br>
-Jakarta Selatan 12530 – Indonesia
-</p>
-
-<p>🕒 Jam Operasional:</p>
-<ul>
-<li>Senin – Jumat : 09.00 – 17.00 WIB</li>
-<li>Sabtu : 09.00 – 14.00 WIB</li>
-<li>Minggu & Hari Libur : Tutup</li>
-</ul>
-
-<p>📞 Customer Service:</p>
-<p>WhatsApp: 0831-7276-6800</p>
-
-<p>📌 Lokasi Google Maps:</p>
-
-<iframe 
-src="https://maps.google.com/maps?q=gedung%20antam%20jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%" 
-height="250" 
-style="border:0; border-radius:10px;">
-</iframe>
-
-<p style="margin-top:10px; font-size:13px; opacity:0.7;">
-*Seluruh transaksi resmi hanya dilayani melalui kantor pusat & saluran resmi kami.
-</p>
-
 </div>
 
 </div>
@@ -263,13 +267,11 @@ style="border:0; border-radius:10px;">
 
 <script>
 
-/* HARGA REALTIME */
 setInterval(()=>{
 let harga = 1900000 + Math.floor(Math.random()*40000);
 document.getElementById("harga").innerText = "Rp "+harga.toLocaleString()+" / gram";
 },3000);
 
-/* ORDER */
 function order(){
 let nama = document.getElementById("nama").value;
 let alamat = document.getElementById("alamat").value;
@@ -292,7 +294,6 @@ let pesan =
 window.open("https://wa.me/6283172766800?text="+pesan);
 }
 
-/* CHART */
 new Chart(document.getElementById("chart"), {
 type: 'line',
 data: {
@@ -308,4 +309,4 @@ borderWidth:2
 </script>
 
 </body>
-  </html>
+                       </html>
