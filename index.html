@@ -16,7 +16,6 @@ body{
     color:#fff;
 }
 
-/* HEADER */
 header{
     background:linear-gradient(90deg,#c9a227,#ffd700);
     color:#000;
@@ -26,7 +25,6 @@ header{
     font-weight:bold;
 }
 
-/* TRUST BAR */
 .trust{
     display:flex;
     justify-content:center;
@@ -36,21 +34,18 @@ header{
     font-size:13px;
 }
 
-/* MARQUEE */
 marquee{
     background:#000;
     color:#ffd700;
     padding:10px;
 }
 
-/* CONTAINER */
 .container{
     max-width:1100px;
     margin:auto;
     padding:20px;
 }
 
-/* CARD */
 .card{
     background:#1e293b;
     padding:20px;
@@ -59,7 +54,6 @@ marquee{
     box-shadow:0 0 20px rgba(255,215,0,0.1);
 }
 
-/* GRID */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -72,12 +66,6 @@ marquee{
     border-radius:12px;
     text-align:center;
     background:#0f172a;
-    transition:0.3s;
-}
-
-.product:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 15px gold;
 }
 
 .product img{
@@ -88,7 +76,6 @@ marquee{
     margin-top:10px;
 }
 
-/* FORM */
 input, select{
     width:100%;
     padding:12px;
@@ -109,7 +96,6 @@ input, select{
     cursor:pointer;
 }
 
-/* BADGE */
 .badge{
     background:green;
     padding:5px 10px;
@@ -117,7 +103,6 @@ input, select{
     font-size:12px;
 }
 
-/* WA */
 .wa{
     position:fixed;
     bottom:20px;
@@ -128,7 +113,6 @@ input, select{
     color:#fff;
 }
 
-/* FOOTER */
 footer{
     background:#000;
     text-align:center;
@@ -155,13 +139,11 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 
 <div class="container">
 
-<!-- PROMO -->
 <div class="card">
 <h2>Promo Eksklusif Hari Ini</h2>
 <p>Diskon hingga 10% + Gratis Ongkir Nasional</p>
 </div>
 
-<!-- PRODUK -->
 <div class="card">
 <h2>Produk Emas ANTAM</h2>
 <div class="grid">
@@ -205,19 +187,16 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 </div>
 </div>
 
-<!-- REALTIME -->
 <div class="card">
 <h2>Harga Emas Hari Ini</h2>
 <h3 id="harga">Rp 1.950.000 / gram</h3>
 </div>
 
-<!-- GRAFIK -->
 <div class="card">
 <h2>Grafik Harga</h2>
 <canvas id="chart"></canvas>
 </div>
 
-<!-- FORM -->
 <div class="card">
 <h2>Form Pembelian Resmi</h2>
 
@@ -239,7 +218,6 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 
 </div>
 
-<!-- KEAMANAN -->
 <div class="card">
 <h2>Keamanan Transaksi</h2>
 <p>✔ Sistem terenkripsi</p>
@@ -247,20 +225,25 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 <p>✔ Garansi 100% uang kembali</p>
 </div>
 
-<!-- SERTIFIKAT -->
 <div class="card">
 <h2>Sertifikat Digital</h2>
 <p>Dilengkapi QR Code & sertifikat resmi ANTAM</p>
 </div>
 
-<!-- TESTIMONI -->
 <div class="card">
 <h2>Testimoni</h2>
 <p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
 <p>⭐⭐⭐⭐⭐ COD cepat sampai</p>
 </div>
 
-<!-- ALAMAT -->
+<!-- TAMBAHAN REKENING -->
+<div class="card">
+<h2>Pembayaran Resmi</h2>
+<p><b>Bank BNI</b></p>
+<p>No Rekening: <b>2008767103</b></p>
+<p>Atas Nama: <b>M ILHAM SIRAIT</b></p>
+</div>
+
 <div class="card">
 <h2>Alamat Kantor Pusat Resmi</h2>
 
@@ -293,13 +276,11 @@ style="border:0; border-radius:10px;">
 
 <script>
 
-/* HARGA REALTIME */
 setInterval(()=>{
 let harga = 1900000 + Math.floor(Math.random()*40000);
 document.getElementById("harga").innerText = "Rp "+harga.toLocaleString()+" / gram";
 },3000);
 
-/* ORDER */
 function order(){
 let nama = document.getElementById("nama").value;
 let alamat = document.getElementById("alamat").value;
@@ -310,19 +291,23 @@ alert("Lengkapi data dulu!");
 return;
 }
 
+let tanggal = new Date().toLocaleString();
 let invoice = "INV"+Math.floor(Math.random()*999999);
-document.getElementById("invoice").innerText = "Invoice: "+invoice;
 
-let pesan = 
+let detail = 
 "INVOICE: "+invoice+
+"%0ATanggal: "+tanggal+
 "%0ANama: "+nama+
 "%0AAlamat: "+alamat+
-"%0AProduk: "+produk;
+"%0AProduk: "+produk+
+"%0A%0APembayaran:%0ABNI - 2008767103 a/n M ILHAM SIRAIT";
 
-window.open("https://wa.me/6283172766800?text="+pesan);
+document.getElementById("invoice").innerText =
+"Invoice: "+invoice+" | "+tanggal;
+
+window.open("https://wa.me/6283172766800?text="+detail);
 }
 
-/* CHART */
 new Chart(document.getElementById("chart"), {
 type: 'line',
 data: {
@@ -338,4 +323,4 @@ borderWidth:2
 </script>
 
 </body>
-    </html>
+                       </html>
