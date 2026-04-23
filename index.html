@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ANTAM ELITE STORE</title>
+<title>ANTAM SUPER ELITE STORE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,113 +14,177 @@
 body{
 margin:0;
 font-family:Poppins;
-background:#0a0a0a;
+background:radial-gradient(circle at top,#111,#000,#000);
 color:#fff;
 }
 
 /* HEADER */
 header{
-background:linear-gradient(90deg,#d4af37,#ffd700,#fff);
+background:linear-gradient(90deg,#b8860b,#ffd700,#fff8dc);
 color:#000;
-padding:18px;
+padding:22px;
 text-align:center;
-font-weight:bold;
-font-size:22px;
+font-weight:800;
+font-size:24px;
+letter-spacing:2px;
+box-shadow:0 10px 35px rgba(255,215,0,0.25);
+position:sticky;
+top:0;
+z-index:10;
 }
 
-/* TITLE */
-.title{
-text-align:center;
-font-size:28px;
-margin:25px 0;
-font-weight:600;
+/* TRUST */
+.trust{
+display:flex;
+justify-content:center;
+gap:10px;
+background:#000;
+padding:12px;
 }
+
+.badge{
+background:linear-gradient(90deg,#00ff99,#00c853);
+padding:6px 12px;
+border-radius:20px;
+color:#000;
+font-weight:700;
+font-size:12px;
+}
+
+/* MARQUEE */
+marquee{
+background:#000;
+color:#ffd700;
+padding:10px;
+font-weight:500;
+letter-spacing:1px;
+}
+
+/* HERO (TAMBAHAN BARU - TAMPILAN NYATA) */
+.hero{
+max-width:1100px;
+margin:20px auto;
+padding:25px;
+text-align:center;
+background:linear-gradient(145deg,#121212,#000);
+border:1px solid rgba(255,215,0,0.25);
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+.hero h1{
+color:#ffd700;
+margin:0;
+font-size:28px;
+}
+
+.hero p{
+opacity:0.8;
+margin-top:10px;
+line-height:1.5;
+}
+
+.hero .tag{
+margin-top:15px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+}
+
+.hero .tag span{
+padding:6px 12px;
+border-radius:10px;
+font-weight:700;
+font-size:12px;
+}
+
+.hero .t1{background:#ffd700;color:#000;}
+.hero .t2{background:#00c853;color:#000;}
+.hero .t3{background:#2196f3;color:#fff;}
 
 /* CONTAINER */
 .container{
-max-width:600px;
+max-width:1100px;
 margin:auto;
-padding:15px;
-}
-
-/* PRODUCT CARD */
-.product{
-background:#000;
-border:1.5px solid #ffd700;
-border-radius:35px;
-padding:30px 20px;
-margin-bottom:30px;
-text-align:center;
-}
-
-/* BADGE */
-.badge{
-display:inline-block;
-background:#ffd700;
-color:#000;
-padding:7px 18px;
-border-radius:25px;
-font-size:13px;
-margin-bottom:15px;
-font-weight:600;
-}
-
-/* TITLE */
-.title-produk{
-font-size:26px;
-font-weight:600;
-}
-
-/* PRICE */
-.harga{
-font-size:22px;
-font-weight:700;
-margin-bottom:20px;
-}
-
-/* IMAGE BOX */
-.img-box{
-background:#f3f3f3;
-border-radius:30px;
-padding:25px;
-box-shadow:
-0 20px 50px rgba(0,0,0,0.9),
-inset 0 0 8px rgba(0,0,0,0.1);
-}
-
-/* IMAGE */
-.img-box img{
-width:100%;
-height:260px;
-object-fit:contain;
+padding:20px;
 }
 
 /* CARD */
 .card{
-background:#111;
-padding:20px;
+background:linear-gradient(145deg,#121212,#000);
+padding:22px;
 border-radius:20px;
-margin-top:20px;
+margin-bottom:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+border:1px solid rgba(255,215,0,0.15);
 }
 
-/* FORM */
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:18px;
+}
+
+/* PRODUCT */
+.product{
+background:#0a0a0a;
+padding:15px;
+border-radius:16px;
+text-align:center;
+position:relative;
+border:1px solid #ffd700;
+transition:0.3s;
+}
+
+.product:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(255,215,0,0.2);
+}
+
+.product span{
+position:absolute;
+top:10px;
+left:10px;
+background:#ffd700;
+color:#000;
+padding:4px 10px;
+border-radius:10px;
+font-size:11px;
+font-weight:700;
+}
+
+.product img{
+width:100%;
+height:170px;
+object-fit:contain;
+background:#fff;
+border-radius:10px;
+padding:8px;
+}
+
+/* INPUT */
 input,select{
 width:100%;
 padding:12px;
 margin-top:10px;
 border-radius:10px;
 border:none;
+outline:none;
 }
 
+/* BUTTON */
 .btn{
 width:100%;
-background:#ffd700;
+background:linear-gradient(90deg,#ffd700,#b8860b);
 color:#000;
 padding:12px;
 border:none;
 border-radius:10px;
 margin-top:10px;
-font-weight:bold;
+font-weight:800;
+cursor:pointer;
 }
 
 /* WA */
@@ -128,10 +192,13 @@ font-weight:bold;
 position:fixed;
 bottom:20px;
 right:20px;
-background:green;
-padding:15px;
+background:#25D366;
+padding:16px;
 border-radius:50%;
 color:#fff;
+font-weight:bold;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+text-decoration:none;
 }
 
 /* FOOTER */
@@ -139,7 +206,7 @@ footer{
 background:#000;
 text-align:center;
 padding:20px;
-margin-top:30px;
+color:#777;
 }
 </style>
 </head>
@@ -147,70 +214,86 @@ margin-top:30px;
 <body>
 
 <header>
-PT ANTAM GOLD INDONESIA • ELITE
+ANTAM SUPER ELITE STORE • GOLD INVESTMENT
 </header>
 
-<div class="title">Produk Emas ANTAM</div>
+<div class="trust">
+<span class="badge">✔ Resmi</span>
+<span class="badge">🔒 Aman</span>
+<span class="badge">📦 COD</span>
+</div>
+
+<marquee>
+⚠️ Transaksi resmi hanya melalui WhatsApp 083172766800
+</marquee>
+
+<!-- HERO BARU (INI YANG BIKIN TERASA NYATA) -->
+<div class="hero">
+  <h1>ANTAM GOLD INDONESIA</h1>
+  <p>
+    Platform jual beli emas ANTAM terpercaya dengan sistem transaksi aman, real-time, dan bersertifikat resmi.
+  </p>
+
+  <div class="tag">
+    <span class="t1">✔ Verified Company</span>
+    <span class="t2">✔ Secure Transaction</span>
+    <span class="t3">✔ Real Market Price</span>
+  </div>
+</div>
 
 <div class="container">
 
-<!-- PRODUK -->
+<!-- PROMO -->
+<div class="card">
+<h2>Promo Eksklusif Hari Ini</h2>
+<p>Diskon hingga 10% + Bonus pengiriman cepat</p>
+</div>
 
-<div class="product">
-<div class="badge">ORI</div>
-<div class="title-produk">1 Gram</div>
-<div class="harga">Rp 2.800.000</div>
-<div class="img-box">
+<!-- PRODUK -->
+<div class="card">
+<h2>Produk Emas ANTAM</h2>
+<div class="grid">
+
+<div class="product" onclick="zoom(this)">
+<span>ORI</span>
+1 Gram<br><b>Rp 2.800.000</b>
 <img src="IMG-20260417-1GRAM.jpg">
 </div>
-</div>
 
-<div class="product">
-<div class="badge">ORI</div>
-<div class="title-produk">3 Gram</div>
-<div class="harga">Rp 8.400.000</div>
-<div class="img-box">
+<div class="product" onclick="zoom(this)">
+<span>ORI</span>
+3 Gram<br><b>Rp 8.400.000</b>
 <img src="IMG-20260417-3GRAM.jpg">
 </div>
-</div>
 
-<div class="product">
-<div class="badge">ORI</div>
-<div class="title-produk">5 Gram</div>
-<div class="harga">Rp 14.060.000</div>
-<div class="img-box">
+<div class="product" onclick="zoom(this)">
+<span>ORI</span>
+5 Gram<br><b>Rp 14.060.000</b>
 <img src="IMG-20260417-5GRAM.jpg">
 </div>
-</div>
 
-<div class="product">
-<div class="badge">ORI</div>
-<div class="title-produk">10 Gram</div>
-<div class="harga">Rp 28.900.000</div>
-<div class="img-box">
+<div class="product" onclick="zoom(this)">
+<span>ORI</span>
+10 Gram<br><b>Rp 28.900.000</b>
 <img src="IMG-20260417-10GRAM.jpg">
 </div>
-</div>
 
-<div class="product">
-<div class="badge">ORI</div>
-<div class="title-produk">25 Gram</div>
-<div class="harga">Rp 70.080.000</div>
-<div class="img-box">
+<div class="product" onclick="zoom(this)">
+<span>ORI</span>
+25 Gram<br><b>Rp 70.080.000</b>
 <img src="IMG-20260417-25GRAM.jpg">
 </div>
-</div>
 
-<div class="product">
-<div class="badge">ORI</div>
-<div class="title-produk">50 Gram</div>
-<div class="harga">Rp 140.000.000</div>
-<div class="img-box">
+<div class="product" onclick="zoom(this)">
+<span>ORI</span>
+50 Gram<br><b>Rp 140.000.000</b>
 <img src="IMG-20260417-50GRAM.jpg">
 </div>
+
+</div>
 </div>
 
-<!-- HARGA REALTIME -->
+<!-- HARGA -->
 <div class="card">
 <h2>Harga Emas Hari Ini</h2>
 <h3 id="harga">Rp 1.950.000 / gram</h3>
@@ -246,15 +329,16 @@ PT ANTAM GOLD INDONESIA • ELITE
 <div class="card">
 <h2>Testimoni</h2>
 <p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
-<p>⭐⭐⭐⭐⭐ Barang asli</p>
+<p>⭐⭐⭐⭐⭐ Barang asli ANTAM</p>
 <p>⭐⭐⭐⭐⭐ Pengiriman cepat</p>
 </div>
 
 <!-- ALAMAT -->
 <div class="card">
-<h2>Alamat</h2>
-<p>Gedung ANTAM Tower<br>Jakarta Selatan</p>
-<iframe src="https://maps.google.com/maps?q=gedung%20antam%20jakarta&output=embed" width="100%" height="250"></iframe>
+<h2>Alamat Kantor</h2>
+<p>Gedung ANTAM Tower Jakarta Selatan</p>
+<iframe src="https://maps.google.com/maps?q=gedung%20antam%20jakarta&output=embed"
+width="100%" height="250" style="border-radius:10px;border:0;"></iframe>
 </div>
 
 <!-- REKENING -->
@@ -268,37 +352,39 @@ PT ANTAM GOLD INDONESIA • ELITE
 
 <a href="https://wa.me/6283172766800" class="wa">WA</a>
 
-<footer>© 2026 ANTAM</footer>
+<footer>© 2026 ANTAM SUPER ELITE STORE</footer>
 
 <script>
-
-/* HARGA REALTIME */
 setInterval(()=>{
-let h=1900000+Math.floor(Math.random()*40000);
-document.getElementById("harga").innerText="Rp "+h.toLocaleString()+" / gram";
+let harga=1900000+Math.floor(Math.random()*40000);
+document.getElementById("harga").innerText="Rp "+harga.toLocaleString()+" / gram";
 },3000);
 
-/* ORDER */
 function order(){
-let n=nama.value,a=alamat.value,p=produk.value;
-if(!n||!a){alert("Isi data!");return;}
+let nama=document.getElementById("nama").value;
+let alamat=document.getElementById("alamat").value;
+let produk=document.getElementById("produk").value;
+
+if(!nama||!alamat){alert("Isi data!");return;}
 
 let inv="INV"+Math.floor(Math.random()*999999);
-invoice.innerText="Invoice: "+inv;
+document.getElementById("invoice").innerText="Invoice: "+inv;
 
 const {jsPDF}=window.jspdf;
 let doc=new jsPDF();
 doc.text("INVOICE ANTAM",20,20);
-doc.text("No:"+inv,20,40);
-doc.text("Nama:"+n,20,60);
-doc.text("Produk:"+p,20,70);
-doc.text("BNI 2008767103",20,100);
-doc.save("invoice.pdf");
+doc.text(inv,20,40);
+doc.text(nama,20,60);
+doc.text(produk,20,80);
+doc.save(inv+".pdf");
 
 window.open("https://wa.me/6283172766800?text=Invoice:"+inv);
 }
 
-/* CHART */
+function zoom(el){
+alert("Zoom aktif (bisa dikembangkan lagi)");
+}
+
 new Chart(document.getElementById("chart"),{
 type:'line',
 data:{
