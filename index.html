@@ -6,7 +6,11 @@
 <title>ANTAM Official Gold Store</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ✅ PDF LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
 body{
@@ -31,7 +35,6 @@ header{
     gap:20px;
     background:#111827;
     padding:10px;
-    font-size:13px;
 }
 
 marquee{
@@ -65,7 +68,6 @@ marquee{
     padding:15px;
     border-radius:12px;
     text-align:center;
-    background:#0f172a;
 }
 
 .product img{
@@ -100,7 +102,6 @@ input, select{
     background:green;
     padding:5px 10px;
     border-radius:20px;
-    font-size:12px;
 }
 
 .wa{
@@ -129,21 +130,23 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 
 <div class="trust">
 <span class="badge">✔ Situs Resmi</span>
-<span class="badge">🔒 Transaksi Aman</span>
-<span class="badge">📦 COD Seluruh Indonesia</span>
+<span class="badge">🔒 Aman</span>
+<span class="badge">📦 COD</span>
 </div>
 
 <marquee>
-⚠️ Hanya melayani transaksi melalui website ini & WhatsApp resmi 083172766800
+⚠️ Transaksi resmi hanya melalui WhatsApp 083172766800
 </marquee>
 
 <div class="container">
 
+<!-- PROMO -->
 <div class="card">
 <h2>Promo Eksklusif Hari Ini</h2>
 <p>Diskon hingga 10% + Gratis Ongkir Nasional</p>
 </div>
 
+<!-- PRODUK -->
 <div class="card">
 <h2>Produk Emas ANTAM</h2>
 <div class="grid">
@@ -187,21 +190,25 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 </div>
 </div>
 
+<!-- HARGA -->
 <div class="card">
 <h2>Harga Emas Hari Ini</h2>
 <h3 id="harga">Rp 1.950.000 / gram</h3>
 </div>
 
+<!-- GRAFIK -->
 <div class="card">
 <h2>Grafik Harga</h2>
 <canvas id="chart"></canvas>
 </div>
 
+<!-- FORM -->
 <div class="card">
-<h2>Form Pembelian Resmi</h2>
+<h2>Form Pembelian</h2>
 
-<input id="nama" placeholder="Nama Lengkap">
-<input id="alamat" placeholder="Alamat Lengkap">
+<input id="nama" placeholder="Nama">
+<input id="alamat" placeholder="Alamat">
+
 <select id="produk">
 <option value="">Pilih Produk</option>
 <option>1 Gram - 2.800.000</option>
@@ -213,30 +220,11 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 </select>
 
 <button class="btn" onclick="order()">Buat Pesanan</button>
-
 <p id="invoice"></p>
 
 </div>
 
-<div class="card">
-<h2>Keamanan Transaksi</h2>
-<p>✔ Sistem terenkripsi</p>
-<p>✔ Verifikasi manual admin</p>
-<p>✔ Garansi 100% uang kembali</p>
-</div>
-
-<div class="card">
-<h2>Sertifikat Digital</h2>
-<p>Dilengkapi QR Code & sertifikat resmi ANTAM</p>
-</div>
-
-<div class="card">
-<h2>Testimoni</h2>
-<p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
-<p>⭐⭐⭐⭐⭐ COD cepat sampai</p>
-</div>
-
-<!-- TAMBAHAN REKENING -->
+<!-- REKENING -->
 <div class="card">
 <h2>Pembayaran Resmi</h2>
 <p><b>Bank BNI</b></p>
@@ -244,26 +232,11 @@ PT ANTAM GOLD INDONESIA • OFFICIAL STORE
 <p>Atas Nama: <b>M ILHAM SIRAIT</b></p>
 </div>
 
+<!-- TESTIMONI -->
 <div class="card">
-<h2>Alamat Kantor Pusat Resmi</h2>
-
-<p><b>PT ANTAM GOLD INDONESIA</b></p>
-
-<p>
-Gedung Aneka Tambang (ANTAM Tower)<br>
-Jl. Letjen T.B. Simatupang No.1<br>
-Jakarta Selatan
-</p>
-
-<p>WhatsApp: 0831-7276-6800</p>
-
-<iframe 
-src="https://maps.google.com/maps?q=gedung%20antam%20jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%" 
-height="250" 
-style="border:0; border-radius:10px;">
-</iframe>
-
+<h2>Testimoni</h2>
+<p>⭐⭐⭐⭐⭐ Aman & terpercaya</p>
+<p>⭐⭐⭐⭐⭐ COD cepat sampai</p>
 </div>
 
 </div>
@@ -276,38 +249,63 @@ style="border:0; border-radius:10px;">
 
 <script>
 
+/* HARGA RANDOM */
 setInterval(()=>{
 let harga = 1900000 + Math.floor(Math.random()*40000);
 document.getElementById("harga").innerText = "Rp "+harga.toLocaleString()+" / gram";
 },3000);
 
+/* ORDER + PDF */
 function order(){
 let nama = document.getElementById("nama").value;
 let alamat = document.getElementById("alamat").value;
 let produk = document.getElementById("produk").value;
 
-if(nama=="" || alamat=="" || produk==""){
-alert("Lengkapi data dulu!");
+if(!nama || !alamat || !produk){
+alert("Isi semua data!");
 return;
 }
 
 let tanggal = new Date().toLocaleString();
 let invoice = "INV"+Math.floor(Math.random()*999999);
 
-let detail = 
-"INVOICE: "+invoice+
-"%0ATanggal: "+tanggal+
-"%0ANama: "+nama+
-"%0AAlamat: "+alamat+
-"%0AProduk: "+produk+
-"%0A%0APembayaran:%0ABNI - 2008767103 a/n M ILHAM SIRAIT";
-
+// tampil invoice
 document.getElementById("invoice").innerText =
 "Invoice: "+invoice+" | "+tanggal;
 
-window.open("https://wa.me/6283172766800?text="+detail);
+// WA
+let text = "INVOICE:"+invoice+
+"%0ATanggal:"+tanggal+
+"%0ANama:"+nama+
+"%0AAlamat:"+alamat+
+"%0AProduk:"+produk+
+"%0A%0APembayaran:%0ABNI 2008767103 a/n M ILHAM SIRAIT";
+
+// PDF
+const { jsPDF } = window.jspdf;
+let doc = new jsPDF();
+
+doc.setFontSize(16);
+doc.text("INVOICE EMAS ANTAM", 20, 20);
+
+doc.setFontSize(12);
+doc.text("Invoice: "+invoice, 20, 40);
+doc.text("Tanggal: "+tanggal, 20, 50);
+doc.text("Nama: "+nama, 20, 70);
+doc.text("Alamat: "+alamat, 20, 80);
+doc.text("Produk: "+produk, 20, 90);
+
+doc.text("Pembayaran:", 20, 110);
+doc.text("BNI - 2008767103", 20, 120);
+doc.text("A/N M ILHAM SIRAIT", 20, 130);
+
+doc.save("Invoice-"+invoice+".pdf");
+
+// buka WA
+window.open("https://wa.me/6283172766800?text="+text);
 }
 
+/* CHART */
 new Chart(document.getElementById("chart"), {
 type: 'line',
 data: {
@@ -323,4 +321,4 @@ borderWidth:2
 </script>
 
 </body>
-                       </html>
+    </html>
