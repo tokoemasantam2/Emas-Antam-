@@ -2,204 +2,465 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PT ANTAM GOLD INDONESIA • Official Store</title>
+  <title>PT ANTAM GOLD INDONESIA | Official Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    :root{
-      --gold:#d4af37;
-      --gold-light:#ffd76a;
-      --dark:#050505;
-      --dark-2:#0b0b0b;
-      --card:rgba(10,10,10,.92);
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:'Poppins',sans-serif;
-      color:#fff;
-      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)), url('antam-gold-premium.jpg') center center/cover no-repeat;
+
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f7d774;
+      --gold-dark: #a67c00;
+      --dark: #0b0b0b;
+      --dark-2: #121212;
+      --white: #ffffff;
+      --gray: #d9d9d9;
     }
-    .container{max-width:1400px;margin:auto;padding:20px;}
-    .hero{
-      padding:40px 20px 30px;
-      text-align:center;
-      border-bottom:1px solid rgba(212,175,55,.35);
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #050505 0%, #111 100%);
+      color: var(--white);
+      line-height: 1.6;
     }
-    .brand-box{
-      display:inline-block;
-      padding:18px 35px;
-      border:1px solid rgba(212,175,55,.5);
-      border-radius:16px;
-      background:rgba(0,0,0,.45);
-      backdrop-filter:blur(8px);
-      box-shadow:0 0 30px rgba(212,175,55,.15);
+
+    .container {
+      width: 90%;
+      max-width: 1280px;
+      margin: auto;
     }
-    .brand-box h1{font-size:2.2rem;color:var(--gold-light);font-weight:800;}
-    .brand-box p{margin-top:8px;color:#f5deb3;}
-    .trust-grid,.features-grid,.product-grid,.bottom-grid{display:grid;gap:20px;}
-    .trust-grid{grid-template-columns:repeat(3,1fr);margin:25px 0;}
-    .product-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
-    .features-grid{grid-template-columns:1fr 1fr;}
-    .bottom-grid{grid-template-columns:repeat(3,1fr);}
-    .card{
-      background:linear-gradient(180deg,rgba(18,18,18,.95),rgba(5,5,5,.98));
-      border:1px solid rgba(212,175,55,.45);
-      border-radius:18px;
-      padding:24px;
-      box-shadow:0 0 30px rgba(212,175,55,.1), inset 0 0 20px rgba(255,215,0,.03);
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
     }
-    .trust-item,.promo-banner{
-      text-align:center;
-      padding:16px;
-      border:1px solid rgba(212,175,55,.5);
-      border-radius:14px;
-      background:rgba(0,0,0,.55);
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
     }
-    .promo-banner{margin-bottom:24px;background:linear-gradient(90deg,rgba(30,20,0,.8),rgba(0,0,0,.75));}
-    h2{color:var(--gold-light);margin-bottom:18px;font-size:2rem}
-    h3{color:var(--gold-light);margin-bottom:14px}
-    .product{
-      text-align:center;
-      border:1px solid rgba(212,175,55,.4);
-      border-radius:16px;
-      padding:18px;
-      background:rgba(15,15,15,.85);
-      transition:.35s;
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 1px;
     }
-    .product:hover{transform:translateY(-8px);box-shadow:0 0 25px rgba(212,175,55,.25)}
-    .product img{width:100%;height:180px;object-fit:contain;border-radius:12px;margin:15px 0;background:#111;padding:10px}
-    .price{font-size:1.4rem;font-weight:700;color:var(--gold-light)}
-    input,select,button{
-      width:100%;padding:16px;margin-top:14px;border-radius:12px;
-      border:1px solid rgba(212,175,55,.35);background:#0d0d0d;color:#fff;
-      font-family:inherit;
+
+    .logo span {
+      color: var(--white);
+      font-weight: 600;
     }
-    button{
-      background:linear-gradient(135deg,var(--gold-light),var(--gold));
-      color:#000;font-weight:800;border:none;cursor:pointer;
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
     }
-    button:hover{filter:brightness(1.08)}
-    #harga{font-size:3rem;color:var(--gold-light);font-weight:800;text-align:center}
-    .wa{
-      position:fixed;right:25px;bottom:25px;width:70px;height:70px;
-      border-radius:50%;display:flex;align-items:center;justify-content:center;
-      background:#25d366;color:#fff;text-decoration:none;font-size:1.5rem;font-weight:800;
-      box-shadow:0 0 25px rgba(37,211,102,.5);
-      z-index:999;
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
     }
-    iframe{width:100%;height:320px;border:0;border-radius:14px}
-    footer{text-align:center;padding:30px 20px;border-top:1px solid rgba(212,175,55,.3);margin-top:30px;color:var(--gold-light);font-weight:700}
-    @media(max-width:992px){
-      .features-grid,.bottom-grid,.trust-grid{grid-template-columns:1fr;}
-      .brand-box h1{font-size:1.6rem;}
-      #harga{font-size:2.2rem;}
+
+    .nav-links a:hover {
+      color: var(--gold);
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <section class="hero">
-      <div class="brand-box">
-        <h1>PT ANTAM GOLD INDONESIA</h1>
-        <p>OFFICIAL STORE • INVESTASI AMAN • TERPERCAYA</p>
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)),
+        url('antam-gold-premium.jpg') center/cover no-repeat;
+      padding: 120px 20px 80px;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 22px;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      border-radius: 50px;
+      color: var(--gold-light);
+      margin-bottom: 25px;
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #f1f1f1;
+      max-width: 760px;
+      margin: 0 auto 35px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 34px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.35s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #f5d061);
+      color: #000;
+      box-shadow: 0 10px 30px rgba(212,175,55,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-secondary:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #cfcfcf;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 24px;
+      padding: 35px 28px;
+      transition: 0.35s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(212,175,55,0.45);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .card h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #111;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.15);
+      transition: 0.35s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 24px;
+    }
+
+    .product-info h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 12px 0;
+    }
+
+    .legal-box {
+      background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(255,255,255,0.03));
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .bank-box {
+      margin-top: 30px;
+      background: #0f0f0f;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .bank-box h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .testimonial {
+      background: #101010;
+      border-radius: 20px;
+      padding: 30px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: #25D366;
+      color: white;
+      padding: 18px 38px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    footer {
+      background: #050505;
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(212,175,55,0.15);
+      color: #bdbdbd;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style></head>
+<body>  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">ANTAM <span>GOLD</span></div>
+        <ul class="nav-links">
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#produk">Produk</a></li>
+          <li><a href="#legalitas">Legalitas</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="badge">✓ Distributor Emas ANTAM Terpercaya di Indonesia</div>
+      <h1>Investasi Emas <span>Premium</span> & Aman</h1>
+      <p>Dapatkan emas ANTAM asli bersertifikat dengan jaminan keaslian, harga kompetitif, dan layanan profesional untuk investasi jangka panjang Anda.</p>
+      <div class="cta-buttons">
+        <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+        <a href="https://wa.me/6283172766800" class="btn btn-secondary">Hubungi WhatsApp</a>
       </div>
-    </section><div class="trust-grid">
-  <div class="trust-item">✔ Situs Resmi</div>
-  <div class="trust-item">🔒 Transaksi Aman</div>
-  <div class="trust-item">📦 COD Seluruh Indonesia</div>
-</div>
-
-<div class="promo-banner">
-  <h3>🎁 Promo Eksklusif Hari Ini</h3>
-  <p>Diskon hingga <b>10%</b> + Gratis Ongkir Nasional</p>
-</div>
-
-<div class="card">
-  <h2>💎 Produk Emas ANTAM</h2>
-  <div class="product-grid">
-    <div class="product"><h3>1 Gram</h3><img src="IMG-20260417-1GRAM.jpg"><div class="price">Rp 2.800.000</div></div>
-    <div class="product"><h3>3 Gram</h3><img src="IMG-20260417-3GRAM.jpg"><div class="price">Rp 8.400.000</div></div>
-    <div class="product"><h3>5 Gram</h3><img src="IMG-20260417-5GRAM.jpg"><div class="price">Rp 14.060.000</div></div>
-    <div class="product"><h3>10 Gram</h3><img src="IMG-20260417-10GRAM.jpg"><div class="price">Rp 28.900.000</div></div>
-    <div class="product"><h3>25 Gram</h3><img src="IMG-20260417-25GRAM.jpg"><div class="price">Rp 70.080.000</div></div>
-    <div class="product"><h3>50 Gram</h3><img src="IMG-20260417-50GRAM.jpg"><div class="price">Rp 140.000.000</div></div>
-  </div>
-</div>
-
-<div class="features-grid" style="margin-top:24px;">
-  <div>
+    </div>
+  </section>  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Mengapa Memilih Kami?</h2>
+        <p>Layanan profesional, aman, dan terpercaya</p>
+      </div><div class="features">
     <div class="card">
-      <h3>📈 Harga Emas Hari Ini</h3>
-      <div id="harga">Rp 1.950.000</div>
+      <h3>Emas Asli Bersertifikat</h3>
+      <p>Semua produk emas ANTAM dilengkapi sertifikat resmi dan dijamin 100% asli.</p>
     </div>
-    <div class="card" style="margin-top:20px;">
-      <h3>📊 Grafik Harga</h3>
-      <canvas id="chart"></canvas>
+    <div class="card">
+      <h3>Harga Kompetitif</h3>
+      <p>Penawaran harga terbaik mengikuti pasar emas nasional secara real-time.</p>
     </div>
-  </div>
-
-  <div class="card">
-    <h3>📝 Form Pembelian Resmi</h3>
-    <input id="nama" placeholder="Nama Lengkap">
-    <input id="alamat" placeholder="Alamat Lengkap">
-    <select id="produk">
-      <option value="">Pilih Produk</option>
-      <option>1 Gram - 2.800.000</option>
-      <option>3 Gram - 8.400.000</option>
-      <option>5 Gram - 14.060.000</option>
-      <option>10 Gram - 28.900.000</option>
-      <option>25 Gram - 70.080.000</option>
-      <option>50 Gram - 140.000.000</option>
-    </select>
-    <button onclick="order()">Buat Pesanan</button>
-    <p id="invoice" style="margin-top:15px;color:var(--gold-light)"></p>
+    <div class="card">
+      <h3>Transaksi Aman</h3>
+      <p>Pembayaran melalui rekening resmi perusahaan untuk keamanan maksimal.</p>
+    </div>
+    <div class="card">
+      <h3>Layanan Profesional</h3>
+      <p>Konsultasi investasi emas dengan pelayanan cepat, ramah, dan terpercaya.</p>
+    </div>
   </div>
 </div>
 
-<div class="bottom-grid" style="margin-top:24px;">
-  <div class="card"><h3>🛡️ Keamanan Transaksi</h3><p>✔ Sistem terenkripsi</p><p>✔ Verifikasi manual admin</p><p>✔ Garansi 100% uang kembali</p></div>
-  <div class="card"><h3>🏅 Sertifikat Digital</h3><p>Dilengkapi QR Code & sertifikat resmi ANTAM</p></div>
-  <div class="card"><h3>⭐ Testimoni</h3><p>⭐⭐⭐⭐⭐ Aman & terpercaya</p><p>⭐⭐⭐⭐⭐ COD cepat sampai</p></div>
+  </section>  <section id="produk">
+    <div class="container">
+      <div class="section-title">
+        <h2>Produk Emas ANTAM</h2>
+        <p>Pilihan ukuran lengkap untuk kebutuhan investasi Anda</p>
+      </div><div class="products">
+    <div class="product-card">
+      <img src="IMG-20260417-1GRAM.jpg" alt="Emas Antam 1 Gram">
+      <div class="product-info">
+        <h3>Emas ANTAM 1 Gram</h3>
+        <p>Cocok untuk pemula.</p>
+        <div class="price">Hubungi Kami</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG-20260417-5GRAM.jpg" alt="Emas Antam 5 Gram">
+      <div class="product-info">
+        <h3>Emas ANTAM 5 Gram</h3>
+        <p>Investasi fleksibel dan aman.</p>
+        <div class="price">Hubungi Kami</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG-20260417-10GRAM.jpg" alt="Emas Antam 10 Gram">
+      <div class="product-info">
+        <h3>Emas ANTAM 10 Gram</h3>
+        <p>Pilihan investor menengah.</p>
+        <div class="price">Hubungi Kami</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG-20260417-25GRAM.jpg" alt="Emas Antam 25 Gram">
+      <div class="product-info">
+        <h3>Emas ANTAM 25 Gram</h3>
+        <p>Nilai investasi lebih optimal.</p>
+        <div class="price">Hubungi Kami</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="card" style="margin-top:24px;">
-  <h3>📍 Alamat Kantor Pusat Resmi</h3>
-  <p><b>PT ANTAM GOLD INDONESIA</b></p>
-  <p>Gedung Aneka Tambang (ANTAM Tower)<br>Jl. Letjen T.B. Simatupang No.1<br>Jakarta Selatan</p>
-  <p style="margin:12px 0">WhatsApp: 0831-7276-6800</p>
-  <iframe src="https://maps.google.com/maps?q=gedung%20antam%20jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+  </section>  <section id="legalitas">
+    <div class="container">
+      <div class="section-title">
+        <h2>Legalitas & Rekening Resmi</h2>
+        <p>Transaksi aman dengan identitas usaha yang jelas</p>
+      </div><div class="legal-box">
+    <h3>PT ANTAM GOLD INDONESIA</h3>
+    <p>NIB: 2008767103</p>
+    <p>Distributor & Perdagangan Logam Mulia Resmi</p>
+
+    <div class="bank-box">
+      <h3>Rekening Perusahaan</h3>
+      <p><strong>Bank:</strong> BNI</p>
+      <p><strong>No. Rekening:</strong> 2008767103</p>
+      <p><strong>Atas Nama:</strong> M ILHAM SIRAIT</p>
+    </div>
+  </div>
 </div>
 
-<footer>© 2026 PT ANTAM GOLD INDONESIA</footer>
+  </section>  <section id="testimoni">
+    <div class="container">
+      <div class="section-title">
+        <h2>Testimoni Pelanggan</h2>
+        <p>Kepercayaan pelanggan adalah prioritas kami</p>
+      </div><div class="testimonial-grid">
+    <div class="testimonial">
+      <p>"Pelayanan sangat profesional. Emas diterima dalam kondisi sempurna dan asli. Sangat terpercaya."</p>
+      <strong>- Budi, Jakarta</strong>
+    </div>
+    <div class="testimonial">
+      <p>"Transaksi cepat, aman, dan respons admin sangat baik. Recommended untuk investasi emas."</p>
+      <strong>- Rina, Surabaya</strong>
+    </div>
+    <div class="testimonial">
+      <p>"Harga kompetitif dan proses pembelian sangat mudah. Saya sangat puas."</p>
+      <strong>- Andi, Medan</strong>
+    </div>
+  </div>
+</div>
 
-  </div><a href="https://wa.me/6283172766800" class="wa">WA</a>
+  </section>  <section id="kontak">
+    <div class="container contact">
+      <div class="section-title">
+        <h2>Hubungi Kami Sekarang</h2>
+        <p>Konsultasi dan pemesanan langsung melalui WhatsApp</p>
+      </div><p>WhatsApp Resmi: <strong>0831-7276-6800</strong></p>
+  <a href="https://wa.me/6283172766800" class="whatsapp-btn">Chat via WhatsApp</a>
+</div>
 
-  <script>
-    setInterval(()=>{
-      const harga = 1900000 + Math.floor(Math.random()*40000);
-      document.getElementById('harga').innerText='Rp '+harga.toLocaleString('id-ID')+' / gram';
-    },3000);
-
-    function order(){
-      const nama=document.getElementById('nama').value;
-      const alamat=document.getElementById('alamat').value;
-      const produk=document.getElementById('produk').value;
-      if(!nama||!alamat||!produk){alert('Lengkapi data terlebih dahulu!');return;}
-      const invoice='INV'+Math.floor(Math.random()*999999);
-      document.getElementById('invoice').innerText='Invoice: '+invoice;
-      const pesan=`INVOICE: ${invoice}%0ANama: ${nama}%0AAlamat: ${alamat}%0AProduk: ${produk}`;
-      window.open('https://wa.me/6283172766800?text='+pesan,'_blank');
-    }
-
-    new Chart(document.getElementById('chart'),{
-      type:'line',
-      data:{
-        labels:['11 Mei','12 Mei','13 Mei','14 Mei','15 Mei','16 Mei','17 Mei'],
-        datasets:[{label:'Harga Emas',data:[1810,1940,1850,1920,2050,1940,2020],borderColor:'#d4af37',backgroundColor:'rgba(212,175,55,.2)',tension:.4,borderWidth:3,fill:true}]
-      },
-      options:{plugins:{legend:{labels:{color:'#fff'}}},scales:{x:{ticks:{color:'#fff'}},y:{ticks:{color:'#fff'}}}}
-    });
-  </script></body>
-  </html>
+  </section>  <footer>
+    <p>© 2026 PT ANTAM GOLD INDONESIA. All Rights Reserved.</p>
+    <p>Website Resmi Penjualan Emas ANTAM Indonesia</p>
+  </footer></body>
+          </html>
